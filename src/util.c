@@ -631,7 +631,6 @@ analyze_hunk (hunk, first0, last0, first1, last1, deletes, inserts)
   *first0 = hunk->line0;
   *first1 = hunk->line1;
 
-#if !MSVC_IGNORE
   next = hunk;
   do
     {
@@ -673,7 +672,6 @@ analyze_hunk (hunk, first0, last0, first1, last1, deletes, inserts)
 	  }
     }
   while ((next = next->link) != 0);
-#endif
 
   *last0 = l0;
   *last1 = l1;

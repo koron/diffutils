@@ -17,3 +17,5 @@
 #define HAVE_MEMCHR	1
 #define HAVE_STRCHR	1
 #define HAVE_ST_BLKSIZE	0
+
+#define HAVE_STDBOOL_H	1

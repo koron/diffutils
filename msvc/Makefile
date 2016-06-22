@@ -1,4 +1,4 @@
-CC_FLAGS = -DMSVC_IGNORE=1 -I. -I..\src -I..\lib -Iinclude
+CC_FLAGS = -DHAVE_CONFIG_H -D__USE_GNU -DWIN32 -DMSVC_IGNORE=1 -I. -I..\src -I..\lib -Iinclude
 
 # TODO: regex.h (GNU libc compatible regex)
 
@@ -14,7 +14,9 @@ DIFF_SRC = \
 	ifdef.c \
 	io.c \
 	normal.c \
+	regex.c \
 	side.c \
+	strcasecmp.c \
 	util.c \
 	version.c
 
