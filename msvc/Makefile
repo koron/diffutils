@@ -1,4 +1,4 @@
-CC_FLAGS = -DMSVC_IGNORE=1 -I. -I..\src -I..\lib -Irt_inc -Ilib_inc
+CC_FLAGS = -DMSVC_IGNORE=1 -I. -I..\src -I..\lib -Iinclude
 
 # TODO: dir.c
 # TODO: fnmatch()
@@ -31,10 +31,7 @@ diff.exe: $(DIFF_OBJ)
 {..\lib\}.c.obj::
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
 
-{lib_src\}.c.obj::
-	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
-
-{rt_src\}.c.obj::
+{src\}.c.obj::
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
 
 version.obj: ..\version.c
