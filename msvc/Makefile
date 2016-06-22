@@ -9,6 +9,7 @@ DIFF_SRC = \
 	cmpbuf.c \
 	context.c \
 	diff.c \
+	fnmatch.c \
 	ed.c \
 	ifdef.c \
 	io.c \
@@ -26,6 +27,9 @@ diff.exe: $(DIFF_OBJ)
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
 
 {..\lib\}.c.obj::
+	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
+
+{lib_src\}.c.obj::
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
 
 version.obj: ..\version.c
