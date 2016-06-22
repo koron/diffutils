@@ -1,4 +1,4 @@
-#define HAVE_DIRENT_H	0
+#define HAVE_DIRENT_H	1
 #define HAVE_FCNTL_H	1
 #define HAVE_LIMITS_H	1
 #define HAVE_NDIR_H	0

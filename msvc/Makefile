@@ -9,8 +9,10 @@ DIFF_SRC = \
 	cmpbuf.c \
 	context.c \
 	diff.c \
-	fnmatch.c \
+	dir.c \
+	dirent.c \
 	ed.c \
+	fnmatch.c \
 	ifdef.c \
 	io.c \
 	normal.c \
@@ -32,8 +34,12 @@ diff.exe: $(DIFF_OBJ)
 {lib_src\}.c.obj::
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
 
+{rt_src\}.c.obj::
+	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
+
 version.obj: ..\version.c
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $**
 
 clean:
 	-DEL /F /Q *.obj
+	-DEL /F /Q *.exe

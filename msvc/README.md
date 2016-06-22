@@ -2,5 +2,5 @@
 
 ## Referenced
 
-*   [getopt.h](https://github.com/skandhurkat/Getopt-for-Visual-Studio)
-*   [dirent.h](https://svn.apache.org/repos/asf/avro/trunk/lang/c/tests/msdirent.h)
+*   [getopt](https://github.com/skandhurkat/Getopt-for-Visual-Studio)
+*   [dirent](http://www.two-sdg.demon.co.uk/curbralan/code/dirent/dirent.html)
