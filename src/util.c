@@ -182,6 +182,7 @@ begin_output ()
      This requirement is silly and does not match historical practice.  */
   sprintf (name, "diff%s %s %s", switch_string, current_name0, current_name1);
 
+#if !MSVC_IGNORE
   if (paginate_flag)
     {
       /* Make OUTFILE a pipe to a subsidiary `pr'.  */
@@ -233,6 +234,7 @@ begin_output ()
 #endif /* ! HAVE_FORK */
     }
   else
+#endif
     {
 
       /* If -l was not specified, output the diff straight to `stdout'.  */
@@ -269,6 +271,7 @@ begin_output ()
 void
 finish_output ()
 {
+#if !MSVC_IGNORE
   if (outfile != 0 && outfile != stdout)
     {
       int wstatus;
@@ -285,6 +288,7 @@ finish_output ()
       if (wstatus != 0)
 	fatal ("subsidiary pr failed");
     }
+#endif
 
   outfile = 0;
 }
@@ -627,6 +631,7 @@ analyze_hunk (hunk, first0, last0, first1, last1, deletes, inserts)
   *first0 = hunk->line0;
   *first1 = hunk->line1;
 
+#if !MSVC_IGNORE
   next = hunk;
   do
     {
@@ -668,6 +673,7 @@ analyze_hunk (hunk, first0, last0, first1, last1, deletes, inserts)
 	  }
     }
   while ((next = next->link) != 0);
+#endif
 
   *last0 = l0;
   *last1 = l1;

@@ -95,7 +95,9 @@ EXTERN char *file_label[2];
 
 struct regexp_list
 {
+#if !MSVC_IGNORE
   struct re_pattern_buffer buf;
+#endif
   struct regexp_list *next;
 };
 

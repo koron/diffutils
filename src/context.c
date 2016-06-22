@@ -441,6 +441,7 @@ find_function (file, linenum, linep, lenp)
 
   while (--i >= last)
     {
+#if !MSVC_IGNORE
       /* See if this line is what we want.  */
       struct regexp_list *r;
       char const *line = file->linbuf[i];
@@ -454,6 +455,7 @@ find_function (file, linenum, linep, lenp)
 	    find_function_last_match = i;
 	    return;
 	  }
+#endif
     }
   /* If we search back to where we started searching the previous time,
      find the line we found last time.  */

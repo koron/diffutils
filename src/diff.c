@@ -645,6 +645,7 @@ add_regexp (reglist, pattern)
      struct regexp_list **reglist;
      char const *pattern;
 {
+#if !MSVC_IGNORE
   struct regexp_list *r;
   char const *m;
 
@@ -658,6 +659,7 @@ add_regexp (reglist, pattern)
   /* Add to the start of the list, since it's easier than the end.  */
   r->next = *reglist;
   *reglist = r;
+#endif
 }
 
 static void
