@@ -1,7 +1,5 @@
 CC_FLAGS = -DMSVC_IGNORE=1 -I. -I..\src -I..\lib -Iinclude
 
-# TODO: dir.c
-# TODO: fnmatch()
 # TODO: regex.h (GNU libc compatible regex)
 
 DIFF_SRC = \
