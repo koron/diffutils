@@ -965,7 +965,8 @@ compare_files (dir0, name0, dir1, name1, depth)
 
     }
   else if ((same_files = inf[0].desc != -1 && inf[1].desc != -1
-			 && 0 < same_file (&inf[0].stat, &inf[1].stat))
+			 && 0 < same_file (&inf[0].stat, &inf[1].stat)
+			 && same_file_attributes (&inf[0].stat, &inf[1].stat))
 	   && no_diff_means_no_output)
     {
       /* The two named files are actually the same physical file.

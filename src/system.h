@@ -248,6 +248,17 @@ extern int errno;
 #define same_file(s,t) ((s)->st_ino==(t)->st_ino && (s)->st_dev==(t)->st_dev)
 #endif
 
+#ifndef same_file_attributes
+# define same_file_attributes(s, t) \
+   ((s)->st_mode == (t)->st_mode \
+    && (s)->st_nlink == (t)->st_nlink \
+    && (s)->st_uid == (t)->st_uid \
+    && (s)->st_gid == (t)->st_gid \
+    && (s)->st_size == (t)->st_size \
+    && (s)->st_mtime == (t)->st_mtime \
+    && (s)->st_ctime == (t)->st_ctime)
+#endif
+
 /* Place into Q a quoted version of A suitable for `popen' or `system',
    incrementing Q and junking A.
    Do not increment Q by more than 4 * strlen (A) + 2.  */
