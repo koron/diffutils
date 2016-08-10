@@ -19,3 +19,5 @@
 #define HAVE_ST_BLKSIZE	0
 
 #define HAVE_STDBOOL_H	1
+
+#define same_file(s,t) (-1)
