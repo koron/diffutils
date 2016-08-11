@@ -105,6 +105,10 @@ struct dirent *readdir(DIR *dir)
             result         = &dir->result;
             result->d_name = dir->info.name;
         }
+        if(errno == ENOENT)
+        {
+          errno = 0;
+        }
     }
     else
     {
