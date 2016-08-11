@@ -91,6 +91,7 @@ dir_sort (dir, dirdata)
 	  data_used += d_size;
 	  nnames++;
 	}
+#ifndef _WIN32
       if (errno)
 	{
 	  int e = errno;
@@ -98,6 +99,7 @@ dir_sort (dir, dirdata)
 	  errno = e;
 	  return -1;
 	}
+#endif
 #if CLOSEDIR_VOID
       closedir (reading);
 #else
