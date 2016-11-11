@@ -1,5 +1,5 @@
 CC_FLAGS = -DHAVE_CONFIG_H -D__USE_GNU -DWIN32 -DMSVC_IGNORE=1 \
-	-I. -I..\src -I..\lib -Iinclude
+	-D_CRT_SECURE_NO_WARNINGS=1 -I. -I..\src -I..\lib -Iinclude -wd4996
 
 DIFF_SRC = \
 	analyze.c \
@@ -54,6 +54,9 @@ diff.exe: $(DIFF_OBJ)
 
 version.obj: ..\version.c
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $**
+
+tags:
+	ctags -R ../src ../lib ./src
 
 clean:
 	-DEL /F /Q *.obj
