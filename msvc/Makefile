@@ -1,6 +1,5 @@
-CC_FLAGS = -DHAVE_CONFIG_H -D__USE_GNU -DWIN32 -DMSVC_IGNORE=1 -I. -I..\src -I..\lib -Iinclude
-
-# TODO: regex.h (GNU libc compatible regex)
+CC_FLAGS = -DHAVE_CONFIG_H -D__USE_GNU -DWIN32 -DMSVC_IGNORE=1 \
+	-I. -I..\src -I..\lib -Iinclude
 
 DIFF_SRC = \
 	analyze.c \
@@ -22,8 +21,27 @@ DIFF_SRC = \
 
 DIFF_OBJ = $(DIFF_SRC:.c=.obj)
 
+############################################################################
+# WINDOWS BUILD SETTINGS.
+
+APPVER = 6.0
+TARGET = WINNT
+TARGETLANG = LANG_JAPANESE
+
+!IFDEF SDK_INCLUDE_DIR
+!INCLUDE $(SDK_INCLUDE_DIR)\Win32.Mak
+!ELSE
+!INCLUDE <Win32.Mak>
+!ENDIF
+
+############################################################################
+
+build: diff.exe
+
 diff.exe: $(DIFF_OBJ)
-	$(CC) -Fe$@ $** $(LDFLAGS)
+	$(link) /NOLOGO $(ldebug) $(conlflags) $(conlibsdll) $(LDFLAGS) \
+		/OUT:$@ $**
+	IF EXIST $@.manifest mt -nologo -manifest $@.manifest -outputresource:$@;1
 
 {..\src\}.c.obj::
 	$(CC) $(cdebug) $(cflags) $(cvarsdll) $(CC_FLAGS) -c $<
@@ -40,3 +58,8 @@ version.obj: ..\version.c
 clean:
 	-DEL /F /Q *.obj
 	-DEL /F /Q *.exe
+	-DEL /F /Q *.exe.manifest
+	-DEL /F /Q *.pdb
+
+distclean: clean
+	-DEL /F /Q tags
