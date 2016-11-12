@@ -20,4 +20,10 @@
 
 #define HAVE_STDBOOL_H	1
 
-#define same_file(s,t) (-1)
+#define STDC_HEADERS	1
+
+#include <io.h>
+
+#define same_file(s,t)	(-1)
+
+int strcasecmp(const char *s1, const char *s2);

@@ -152,8 +152,10 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 VOID *malloc ();
 VOID *realloc ();
 #endif
+#if !MSVC_IGNORE
 #ifndef getenv
 char *getenv ();
+#endif
 #endif
 
 #if HAVE_LIMITS_H

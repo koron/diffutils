@@ -156,6 +156,7 @@ pr_context_hunk (hunk)
 
   /* If desired, find the preceding function definition line in file 0.  */
   function = 0;
+  function_length = 1;
   if (function_regexp_list)
     find_function (&files[0], first0, &function, &function_length);
 
@@ -289,6 +290,7 @@ pr_unidiff_hunk (hunk)
 
   /* If desired, find the preceding function definition line in file 0.  */
   function = 0;
+  function_length = 1;
   if (function_regexp_list)
     find_function (&files[0], first0, &function, &function_length);
 

@@ -369,7 +369,8 @@ scan_char_literal (lit, intptr)
      int *intptr;
 {
   register char *p = lit;
-  int value, digits;
+  int value;
+  ptrdiff_t digits;
   char c = *p++;
 
   switch (c)
