@@ -1,3 +1,6 @@
+# Build debug version:		nmake
+# Build release version:	nmake NODEBUG=1
+
 DEFINES = -DHAVE_CONFIG_H -D__USE_GNU -DWIN32 -DMSVC_IGNORE=1 \
 	-D_CRT_SECURE_NO_WARNINGS=1
 
