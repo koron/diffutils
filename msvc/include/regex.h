@@ -480,7 +480,7 @@ extern int re_compile_fastmap (struct re_pattern_buffer *__buffer);
    match, or -2 for an internal error.  Also return register
    information in REGS (if REGS and BUFFER->no_sub are nonzero).  */
 extern int re_search (struct re_pattern_buffer *__buffer, const char *__string,
-		      int __length, int __start, int __range,
+		      size_t __length, size_t __start, size_t __range,
 		      struct re_registers *__regs);
 
 

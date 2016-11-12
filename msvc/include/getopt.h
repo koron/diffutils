@@ -112,6 +112,8 @@ static char EMSG[] = "";
 #define	EMSG		""
 #endif
 
+struct option;
+
 static int getopt_internal(int, char * const *, const char *,
 			   const struct option *, int *, int);
 static int parse_long_options(char * const *, const char *,

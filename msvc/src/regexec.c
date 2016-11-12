@@ -320,7 +320,7 @@ int
 re_search (bufp, string, length, start, range, regs)
     struct re_pattern_buffer *bufp;
     const char *string;
-    int length, start, range;
+    size_t length, start, range;
     struct re_registers *regs;
 {
   return re_search_stub (bufp, string, length, start, range, length, regs, 0);

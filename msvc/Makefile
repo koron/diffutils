@@ -1,5 +1,6 @@
 CC_FLAGS = -DHAVE_CONFIG_H -D__USE_GNU -DWIN32 -DMSVC_IGNORE=1 \
-	-D_CRT_SECURE_NO_WARNINGS=1 -I. -I..\src -I..\lib -Iinclude -wd4996
+	-D_CRT_SECURE_NO_WARNINGS=1 -I. -I..\src -I..\lib -Iinclude \
+	-wd4100 -wd4127 -wd4131 -wd4189 -wd4702 -wd4706 -wd4996
 
 DIFF_SRC = \
 	analyze.c \
