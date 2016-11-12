@@ -40,7 +40,11 @@
 # include <wctype.h>
 #endif /* HAVE_WCTYPE_H || _LIBC */
 #if defined HAVE_STDBOOL_H || defined _LIBC
-# include <stdbool.h>
+# if defined _MSC_VER && _MSC_VER < 1800
+#  include <stdbool/stdbool.h>
+# else
+#  include <stdbool.h>
+# endif
 #endif /* HAVE_STDBOOL_H || _LIBC */
 #if defined HAVE_STDINT_H || defined _LIBC
 # include <stdint.h>
